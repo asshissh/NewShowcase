@@ -29,22 +29,24 @@ const ProfessionalInfo = ({ category, h1, h2, h3 }) => {
             return (
               <MainDashboard
                 number={9}
-                h1="React"
+                l7="- React"
                 l1="- Next.js"
                 l2="- Nodejs"
                 l3="- Express"
-                l4="- "
+                l4="- MongoDB" 
+                l5="- TailwindCSS" 
+                l6="- Git"
               />
             );
           case "h3":
             return (
               <MainDashboard
                 number={9}
-                h1="English Speaking"
-                l1="Leadership"
-                l2="- "
-                l3="- "
-                l4="- "
+                h1="-English Speaking"
+                l1="-Leadership"
+                l2="-Project Management" 
+                l3="-Research Skills"
+                l4="-Good Team Player"
               />
             );
           case "mail":
@@ -52,10 +54,10 @@ const ProfessionalInfo = ({ category, h1, h2, h3 }) => {
               <MainDashboard
                 number={9}
                 h1="Mail"
-                l1="- example@mail.com"
+                l1="- ashishsingh27082002@gmail.com"
                 l2="- Available for contact"
-                l3="- "
-                l4="- "
+                l3=" "
+                l4=" "
               />
             );
           case "contact":
@@ -63,10 +65,10 @@ const ProfessionalInfo = ({ category, h1, h2, h3 }) => {
               <MainDashboard
                 number={9}
                 h1="Phone"
-                l1="- 123-456-7890"
+                l1="- 8957564941"
                 l2="- Reachable during business hours"
-                l3="- "
-                l4="- "
+                l3=" "
+                l4=" "
               />
             );
           default:

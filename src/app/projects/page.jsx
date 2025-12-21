@@ -108,7 +108,7 @@ const page = () => {
           />
           <ProjectsPanel
             projectNumber={4}
-            detail="Nextjs"
+            detail="JavaScript ,HTML,CSS"
             image={
               <Image
                 src="/projects/sydney.png"
@@ -122,12 +122,12 @@ const page = () => {
             liveSiteLink="https://sydney-psi.vercel.app/"
             githubLink="https://github.com/asshissh/sydney"
           />
-          {/* <ProjectsPanel
-            projectNumber={1}
-            detail="Nextjs"
+          <ProjectsPanel
+            projectNumber={5}
+            detail="Reactjs,javascript,HTML,CSS,API"
             image={
               <Image
-                src="/projects/stockwise.png"
+                src="/projects/Stockwise.png"
                 alt="Stockwise project"
                 width={400}
                 height={500}
@@ -136,40 +136,43 @@ const page = () => {
             }
             description="Stockwise is a stock market app bla bla bla bla bla bla bla bla bla bla bla bla "
             liveSiteLink="https://nextjs.org/"
+            githubLink="https://github.com/asshissh/Stock_Inventory"
+          />
+
+          <ProjectsPanel
+            projectNumber={6}
+            detail="Reactjs,javascript,HTML,CSS,Chartjs"
+            image={
+              <Image
+                src="/projects/GraphH.png"
+                alt="Stockwise project"
+                width={400}
+                height={500}
+                className="rounded-t-2xl border-b border-white"
+              />
+            }
+            description="Visualize data effectively with GraphH, a React app utilizing Chart.js for dynamic and interactive charts."
+            liveSiteLink="https://nextjs.org/"
             githubLink="https://github.com/gg"
           />
+          
           <ProjectsPanel
             projectNumber={1}
-            detail="Nextjs"
+            detail="Extension,JavaScript"
             image={
               <Image
-                src="/projects/stockwise.png"
+                src="/projects/chatJump.png"
                 alt="Stockwise project"
                 width={400}
                 height={500}
                 className="rounded-t-2xl border-b border-white"
               />
             }
-            description="Stockwise is a stock market app bla bla bla bla bla bla bla bla bla bla bla bla "
+            description="Store the chat history of chatgpt easily and quickly . "
             liveSiteLink="https://nextjs.org/"
-            githubLink="https://github.com/gg"
+            githubLink="https://github.com/asshissh/Gpt-HisTree"
           />
-          <ProjectsPanel
-            projectNumber={1}
-            detail="Nextjs"
-            image={
-              <Image
-                src="/projects/stockwise.png"
-                alt="Stockwise project"
-                width={400}
-                height={500}
-                className="rounded-t-2xl border-b border-white"
-              />
-            }
-            description="Stockwise is a stock market app bla bla bla bla bla bla bla bla bla bla bla bla "
-            liveSiteLink="https://nextjs.org/"
-            githubLink="https://github.com/gg"
-          />
+          {/*
           <ProjectsPanel
             projectNumber={1}
             detail="Nextjs"

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import CrossIcon from "@/components/ui/CrossIcon";
 import DownIcon from "@/components/ui/DownIcon";
@@ -17,24 +17,15 @@ const Page = () => {
     e.preventDefault();
     if (isSubmitting) return;
     setIsSubmitting(true);
+
     try {
       const response = await fetch("/api/mail", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          message,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
       });
-      let data = null;
-      try {
-        data = await response.json();
-      } catch (_) {
-        // ignore parse error
-      }
+
+      const data = await response.json().catch(() => null);
 
       if (response.ok) {
         setStatus(data?.message || "Message sent successfully!");
@@ -44,100 +35,105 @@ const Page = () => {
       } else {
         setStatus(data?.error || "Failed to send the message.");
       }
-    } catch (error) {
-      console.error("Error sending email:", error);
-      setStatus("An error occurred. Please try again later.");
+    } catch (err) {
+      console.error(err);
+      setStatus("An error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
   };
-  
 
   return (
-    <div className="h-[calc(100%-100px)] text-gray-custom font-fira-code flex ">
-      <div className="block border-r border-white lg:w-[391px]"> 
-        <div className="flex flex-row text-white-custom border-b border-white w-full h-[35px] justify-start items-center text-[14px] cursor-pointer">
-          <div className="pl-2 flex justify-center items-center">
-            <DownIcon />
-          </div>
-          <div className="pl-2">contacts</div>
+    <div className="h-[calc(100%-100px)] text-gray-custom font-fira-code flex">
+      {/* LEFT */}
+      <div className="border-r border-white lg:w-[391px]">
+        <div className="flex items-center h-[35px] border-b border-white px-2 text-white-custom">
+          <DownIcon />
+          <span className="pl-2">contacts</span>
         </div>
-        <div className="flex flex-col px-[25px] py-[10px] h-[100px] justify-evenly items-start border-b border-white">
-          <div className="flex flex-row cursor-pointer hover:text-white-custom ">
-            <div className="flex justify-center items-center">
-              <Right />
-            </div>
-            <div className="pl-2 flex justify-center items-center">
-              <MailIcon />
-            </div>
-            <div className="pl-2">Mail</div>
+
+        <div className="flex flex-col px-6 py-3 h-[100px] justify-evenly border-b border-white">
+          <div className="flex items-center gap-2 hover:text-white-custom cursor-pointer">
+            <Right />
+            <MailIcon />
+            <span>Mail</span>
           </div>
-          <div className="flex flex-row cursor-pointer hover:text-white-custom ">
-            <div className="flex justify-center items-center">
-              <Right />
-            </div>
-            <div className="pl-2 flex justify-center items-center">
-              <PhoneIcon />
-            </div>
-            <div className="pl-2">Contact</div>
+          <div className="flex items-center gap-2 hover:text-white-custom cursor-pointer">
+            <Right />
+            <PhoneIcon />
+            <span>Contact</span>
           </div>
         </div>
       </div>
 
+      {/* RIGHT */}
       <div className="h-full w-full">
-        <div className="flex flex-row text-white-custom border-b border-white w-full h-[35px] justify-start items-center text-[14px] cursor-pointer">
-          <div className="pl-4">page.tsx</div>
-          <div className="pl-4 pr-2 border-r border-white h-full flex justify-center items-center">
+        <div className="flex items-center h-[35px] border-b border-white px-4 text-white-custom">
+          <span>page.tsx</span>
+          <div className="ml-4 border-r border-white h-full flex items-center px-2">
             <CrossIcon />
           </div>
         </div>
 
-        <div className="pl-48 pt-20">
+        <div className="pl-48 pt-8  ">
           <form onSubmit={handleSubmit}>
+            {/* NAME */}
             <div className="pb-5">
               <div className="pb-2">_name:</div>
-              <div>
-                <input
-                  className="bg-black-600 border rounded-md border-gray-custom3 w-80 h-9 px-2 focus:outline-none focus:border-gray-custom focus:ring-2 focus:ring-gray-custom focus:ring-opacity-50"
-                  type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </div>
+              <input
+                className="bg-black-600 border border-gray-custom3 rounded-md w-80 h-9 px-2 focus:ring-2 focus:ring-gray-custom"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
             </div>
 
+            {/* EMAIL */}
             <div className="pb-5">
               <div className="pb-2">_email:</div>
-              <div>
-                <input
-                  className="bg-black-600 border rounded-md border-gray-custom3 w-80 h-9 px-2 focus:outline-none focus:border-gray-custom focus:ring-2 focus:ring-gray-custom focus:ring-opacity-50"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
+              <input
+                className="bg-black-600 border border-gray-custom3 rounded-md w-80 h-9 px-2 focus:ring-2 focus:ring-gray-custom"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </div>
 
+            {/* MESSAGE + BUTTON */}
             <div className="pb-5">
               <div className="pb-2">_message:</div>
-              <div className="sm:flex sm:flex-row sm:items-end sm:gap-3">
+
+              <div className="flex flex-col sm:flex-row sm:items-end sm:gap-3">
                 <textarea
-                  className="input-field bg-black-600 border rounded-md border-gray-custom3 w-80 h-64 px-2 pt-1 resize-none focus:outline-none focus:border-gray-custom focus:ring-2 focus:ring-gray-custom focus:ring-opacity-50"
+                  className="
+                    bg-black-600 border border-gray-custom3 rounded-md
+                    w-80
+                    h-20 
+                    max-h-[40vh]
+                    px-2 pt-1 resize-none
+                    focus:ring-2 focus:ring-gray-custom
+                  "
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   required
                 />
+
                 <button
                   type="submit"
                   disabled={!name || !email || !message || isSubmitting}
-                  aria-busy={isSubmitting}
-                  aria-label={isSubmitting ? "Sending email" : "Send email"}
-                  className={`bg-white-custom2 text-white-custom text-[14px] px-4 py-2 rounded-lg flex items-center justify-center gap-2 mt-3 sm:mt-0 ${(!name || !email || !message || isSubmitting) ? "opacity-50 cursor-not-allowed" : "hover:opacity-90"}`}
+                  className="
+                    h-9 w-40
+                    mt-3 sm:mt-0
+                    bg-white-custom2
+                    text-white-custom text-[14px]
+                    rounded-lg flex
+                    items-center justify-center gap-2
+                    transition-all
+                    disabled:opacity-50 disabled:cursor-not-allowed
+                  "
                 >
-                  <span className="inline-flex items-center">
-                    <span className="mr-1"><MailIcon /></span>
+                  <MailIcon />
+                  <span className="whitespace-nowrap">
                     {isSubmitting ? "Sending..." : "Send Email"}
                   </span>
                 </button>
@@ -145,7 +141,7 @@ const Page = () => {
             </div>
           </form>
 
-          {status && <p className="text-white-custom mt-4">{status}</p>}
+          {status && <p className="mt-4 text-white-custom">{status}</p>}
         </div>
       </div>
     </div>
