@@ -71,8 +71,7 @@ const page = () => {
               />
             }
             description="Responsive travel website with full backend API, authentication, and booking system."
-            liveSiteLink="https://nextjs.org/"
-            githubLink="https://github.com/gg"
+            githubLink="https://github.com/asshissh/Natourss"
           />
           <ProjectsPanel
             projectNumber={2}
@@ -135,7 +134,7 @@ const page = () => {
               />
             }
             description="Stockwise is a stock market app bla bla bla bla bla bla bla bla bla bla bla bla "
-            liveSiteLink="https://nextjs.org/"
+            liveSiteLink="https://stock-inventory-apo6.vercel.app/"
             githubLink="https://github.com/asshissh/Stock_Inventory"
           />
 
@@ -152,8 +151,8 @@ const page = () => {
               />
             }
             description="Visualize data effectively with GraphH, a React app utilizing Chart.js for dynamic and interactive charts."
-            liveSiteLink="https://nextjs.org/"
-            githubLink="https://github.com/gg"
+            liveSiteLink="https://graph-a.vercel.app/"
+            githubLink="https://github.com/asshissh/GraphA"
           />
           
           <ProjectsPanel
